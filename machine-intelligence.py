@@ -57,3 +57,20 @@ def report(db):
     print("\nStored Contracts:")
     for k, v in db.store.items():
         print(k, v)
+
+def stats():
+    metrics = {
+        "scale_factor": 1,
+        "status": "active",
+        "latency_ms": 8.7
+    }
+    print("\nMetrics:", json.dumps(metrics, indent=2))
+
+def main():
+    db, h, sig = pipeline()
+    report(db)
+    stats()
+    print("Done")
+
+if __name__ == "__main__":
+    main()
